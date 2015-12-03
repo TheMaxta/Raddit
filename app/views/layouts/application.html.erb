@@ -9,7 +9,8 @@
 <body>
 
 	<% flash.each do |name, msg| %>
-		<% content_tag(:div, msg, class: "alert alert-#{name}") %>
+		<% content_tag(:div, msg, class: "alert alert-info") %>
+		<% content_tag(:div, msg, class: "notice notice-info") %>
 	<% end %>
 
 	<% if user_signed_in? %>
@@ -17,7 +18,7 @@
 			<li><%=link_to 'Submit link', new_link_path %></li>
 			<li><%=link_to 'Account', edit_user_registration_path %></li>
 			<li><%=link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>	
-		</ul>>
+		</ul>
 	<%	else %>
 		<ul>
 			<li><%=link_to 'Sign up', new_user_registration_path %></li>
